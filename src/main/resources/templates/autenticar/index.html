@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Autenticación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+<div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+    <h1 class="text-2xl font-bold mb-6 text-center">Iniciar Sesión</h1>
+    <form th:action="@{/validar}" method="post" class="space-y-6">
+        <div>
+            <label for="codigoUsuario" class="block text-sm font-medium text-gray-700">Código Alumno:</label>
+            <input type="text" id="codigoUsuario" name="codigoUsuario" required
+                   class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"/>
+        </div>
+        <div>
+            <label for="password" class="block text-sm font-medium text-gray-700">Contraseña:</label>
+            <input type="password" id="password" name="password" required
+                   class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"/>
+        </div>
+        <div>
+            <button type="submit"
+                    class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700">
+                Ingresar
+            </button>
+        </div>
+    </form>
+    <div th:if="${error}" class="mt-4">
+        <p th:text="${error}" class="text-red-500 text-center"></p>
+    </div>
+</div>
+</body>
+</html>
